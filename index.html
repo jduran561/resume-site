@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Profile - Professional Resume</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #004b36 0%, #1c57e0 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        /* Hero Header */
+        .hero-header {
+            background: linear-gradient(135deg, #0a24bb 0%, #037a3f 100%);
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255,255,255,0.1) 10px,
+                rgba(255,255,255,0.1) 20px
+            );
+            animation: slide 20s linear infinite;
+        }
+        
+        @keyframes slide {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+        
+        .hero-title {
+            font-family: 'Bangers', cursive;
+            font-size: 4em;
+            color: white;
+            text-shadow: 4px 4px 0px #000, 
+                         8px 8px 0px rgba(0,0,0,0.2);
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 10px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5em;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .visitor-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ffeb3b;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 700;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            z-index: 2;
+            font-family: 'Bangers', cursive;
+            font-size: 1.2em;
+        }
+        
+        /* Main Content */
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            font-family: 'Bangers', cursive;
+            font-size: 2.5em;
+            color: #05050e;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        /* Quirk/Skills Section */
+        .quirk-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .quirk-card {
+            background: linear-gradient(135deg, #0a036e 0%, #1c57e0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            color: white;
+            border: 3px solid #000;
+            box-shadow: 5px 5px 0px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        
+        .quirk-card:hover {
+            transform: translateY(-5px) rotate(1deg);
+        }
+        
+        .quirk-name {
+            font-family: 'Bangers', cursive;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        
+        .quirk-level {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .power-bar {
+            width: 20px;
+            height: 20px;
+            background: #ffeb3b;
+            border: 2px solid #000;
+            border-radius: 3px;
+        }
+        
+        .power-bar.empty {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+        
+        .company-name {
+            font-family: 'Bangers', cursive;
+            font-size: 1.8em;
+            color: #2269ac;
+            margin-bottom: 5px;
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #217eaa;
+            margin-bottom: 5px;
+        }
+        
+        .job-date {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .job-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #001aaf 0%, #151991 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            border: 3px solid #000;
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+            font-weight: 700;
+            transition: transform 0.3s;
+        }
+        
+        .contact-item:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Action Lines Effect */
+        .action-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+            
+            .visitor-badge {
+                position: static;
+                display: inline-block;
+                margin-top: 20px;
+            }
+            
+            .quirk-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="action-lines"></div>
+    
+    <div class="container">
+        <header class="hero-header">
+            <div class="visitor-badge">
+                VISITORS: <span id="visitorCount">Loading...</span>
+            </div>
+            <h1 class="hero-title">Juan D Duran Rayo</h1>
+            <p class="hero-subtitle">Inspring </p>
+        </header>
+        
+        <main class="content">
+            <!-- About Section -->
+            <section class="section">
+                <h2 class="section-title">⚡Professional Summary</h2>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #555;">
+                    Security-minded IT professional holding CompTIA Security+ and Network+ certifications with 3+ years 
+                    delivering endpoint support, incident response, and network security in multi-site environments. 
+                    Excelled in reducing downtime by 20%, enhancing VPN/remote access reliability by 85%, and implementing knowledge bases that cut ticket volume by 30%. 
+                    Experienced with Azure Entra ID integration and hybrid cloud workflows. Pursuing Azure AZ-104 certification to transition into Cloud Security Engineer or 
+                    SOC Analyst positions where I can protect infrastructure and respond to threats at scale.
+                </p>
+            </section>
+            
+            <!-- Skills/Quirks Section -->
+            <section class="section">
+                <h2 class="section-title">💪 Skills</h2>
+                <div class="quirk-container">
+                    <div class="quirk-card">
+                        <div class="quirk-name">Endpoint Security & Incident Response</div>
+                        <p>95% first-call resolution, 20% downtime reduction, knowledge base creator</p>
+                        <div class="quirk-level">
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="quirk-card">
+                        <div class="quirk-name">Network Troubleshooting & Configuration</div>
+                        <p>VLANs, switches, 85% VPN uptime boost across nationwide offices</p>
+                        <div class="quirk-level">
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar empty"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="quirk-card">
+                        <div class="quirk-name">Azure Administration & Identity Management</div>
+                        <p>Azure Entra ID integration</p>
+                        <div class="quirk-level">
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar"></div>
+                            <div class="power-bar empty"></div>
+                            <div class="power-bar empty"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- ADD MORE SKILLS HERE -->
+                </div>
+            </section>
+            
+            <!-- Experience Section -->
+            <section class="section">
+                <h2 class="section-title">🏆 Experience</h2>
+                
+   <div class="experience-item">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+        <!-- Left: Text Details -->
+        <div style="flex: 1;">
+            <div class="company-name">Tricon Residential</div>
+            <div class="job-title">Desktop Support Specialist</div>
+            <div class="job-date">December 2024 – Present | Tustin, CA</div>
+            <div class="job-description">
+                • Provided remote technical support for 5–6 offices nationwide (out of 11 total locations)<br>
+                • Consistently ranked top performer in Freshservice and Zendesk ticket resolution<br>
+                <strong>Key Accomplishments:</strong><br>
+                • Led adaptation during Freshservice → Zendesk transition, maintaining high performance<br>
+                • Contributed to improved system stability across multiple departments
+            </div>
+        </div>
+        
+        <!-- Right: Logo -->
+        <div style="flex-shrink: 0;">
+            <img src="https://res.cloudinary.com/triconresidential/images/f_auto,q_auto/v1763162088/website_uploads/tricon-social-1200x630-1/tricon-social-1200x630-1.png?_i=AA" 
+                 alt="Tricon Logo" 
+                 style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+        </div>
+    </div>
+</div>
+                
+<div class="experience-item">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+            <div style="flex: 1;">
+                <div class="company-name">Coast Sign</div>
+                <div class="job-title">Help Desk Support</div>
+                <div class="job-date">May 2023 – December 2024 | Anaheim, CA</div>
+                <div class="job-description">
+                    • Delivered technical assistance across various departments, successfully enhancing system reliability in a manufacturing setting<br>
+                    • Configured and utilized networking equipment such as crimpers, punch-down tools, and VLANs to ensure stable and effective connectivity<br>
+                    <strong>Key Accomplishments:</strong><br>
+                    • <strong>Network Infrastructure Setup:</strong> Configured and deployed network switches and hubs, resulting in a <strong>20% improvement in data flow efficiency</strong> across departments<br>
+                    • <strong>Increased remote access uptime by 85%</strong>, facilitating seamless VPN connectivity for both iOS and Android devices
+                </div>
+            </div>
+            <div style="flex-shrink: 0;">
+                <img src="https://coastsign.com/wp-content/uploads/2020/12/CoastSign_Logo-2020.png" 
+                     alt="Coast Sign Logo" 
+                     style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+        </div>
+    </div>
+<div class="experience-item">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+            <div style="flex: 1;">
+                <div class="company-name">Litigation Practice Group</div>
+                <div class="job-title">Help Desk Support I</div>
+                <div class="job-date">June 2022 – May 2023 | Tustin, CA</div>
+                <div class="job-description">
+                    • Managed 30–50 support tickets weekly for attorneys and staff<br>
+                    • Collaborated on process improvements to boost team efficiency<br>
+                    <strong>Key Accomplishments:</strong><br>
+                    • Created knowledge base that enabled <strong>30% of tickets to be resolved independently</strong><br>
+                    • Achieved <strong>95% first-call resolution</strong>, increasing satisfaction scores by <strong>15%</strong><br>
+                    • Introduced ticket prioritization system for faster response times
+                </div>
+            </div>
+            <div style="flex-shrink: 0;">
+                <img src="https://media.licdn.com/dms/image/v2/C560BAQGzBD3GPiKoAQ/company-logo_200_200/company-logo_200_200/0/1630642516687/the_litigation_practice_group_logo?e=2147483647&v=beta&t=mPmTh52ia3U1qNTf-BoP4elvBfmwMgvrJt-RpwRS2OU" 
+                     alt="Company Icon" 
+                     style="width: 120px; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); opacity: 0.8;">
+            </div>
+        </div>
+    </div>
+                <!-- ADD MORE EXPERIENCE HERE -->
+            </section>
+            
+            <!-- Contact Section -->
+            <section class="section">
+                <h2 class="section-title">📞Contact Information</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        📧 juanduran56145@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        🔗 linkedin.com/in/yourprofile
+                    </div>
+                    <div class="contact-item">
+                        💻 github.com/yourusername
+                    </div>
+                    <div class="contact-item">
+                        📍 Anaheim, California
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <!-- Certifications Section -->
+<section class="section">
+    <h2 class="section-title">🎖️Certifications</h2>
+    <div class="quirk-container">  <!-- Reusing the grid for nice layout -->
+        
+        <div class="quirk-card">
+            <div style="text-align:center; margin-bottom:15px;">
+                <img src="https://www.clemson.edu/centers-institutes/thinkclemson/images/security-plus.png" alt="CompTIA Security+ Badge" style="width:120px; height:auto;">
+            </div>
+            <div class="quirk-name">CompTIA Security+ (SY0-701)</div>
+            <p>Validated expertise in cybersecurity threats, risk management, and incident response.</p>
+        </div>
+        
+        <div class="quirk-card">
+            <div style="text-align:center; margin-bottom:15px;">
+                <img src="https://www.kindpng.com/picc/m/440-4408676_comptia-network-comptia-security-sy0-501-hd-png.png" alt="CompTIA Network+ Badge" style="width:180px; height:auto;">
+            </div>
+            <div class="quirk-name">CompTIA Network+ (N10-008)</div>
+            <p>Proven skills in network configuration, troubleshooting, and security fundamentals.</p>
+        </div>
+        
+        <div class="quirk-card">
+            <div style="text-align:center; margin-bottom:15px;">
+                <img src="https://badges.peoplecert.org/Badges/Template/en/1140/63804148-665A-4881-AAC6-EAEC58799A85" alt="ITIL 4 Foundation Badge" style="width:140px; height:auto;">
+            </div>
+            <div class="quirk-name">ITIL 4 Foundation</div>
+            <p>Certified in IT service management best practices for efficient support delivery.</p>
+        </div>
+        
+        <!-- Future one when you pass AZ-104 -->
+        <!--
+        <div class="quirk-card">
+            <div style="text-align:center; margin-bottom:15px;">
+                <img src="AZURE_BADGE_URL_HERE" alt="Azure Administrator Badge">
+            </div>
+            <div class="quirk-name">Microsoft Azure Administrator (AZ-104) - In Progress</div>
+            <p>Building hands-on cloud skills through real projects like this site.</p>
+        </div>
+        -->
+        
+    </div>
+</section>
+    <script>
+        // Visitor Counter Integration
+        // REPLACE THIS URL WITH YOUR ACTUAL AZURE FUNCTION URL
+        const FUNCTION_URL = 'https://resume-visitor-counter2-btdyc8dxhncnd2cz.westus2-01.azurewebsites.net/api/GetVisitorCount';
+        
+        async function updateVisitorCount() {
+            try {
+                const response = await fetch(FUNCTION_URL);
+                const data = await response.json();
+                document.getElementById('visitorCount').textContent = data.count;
+            } catch (error) {
+                console.error('Error fetching visitor count:', error);
+                document.getElementById('visitorCount').textContent = '???';
+            }
+        }
+        
+        // Call on page load
+        updateVisitorCount();
+    </script>
+</body>
+</html>
