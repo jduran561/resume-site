@@ -34,8 +34,27 @@
             <div class="nav-brand">
                 <span style="font-family: 'Bangers', cursive; font-size: 1.5em; color: #ffeb3b;">JD</span>
             </div>
-            <ul class="nav-links">
+
+            <!-- Dark Mode Toggle -->
+            <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </button>
+
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburgerMenu" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active" aria-current="page">Resume</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <!-- Uncomment when blog is ready:
                 <li><a href="blog.html">Blog</a></li>
                 -->
@@ -125,7 +144,9 @@
                         </div>
                         <div class="company-logo">
                             <img src="https://res.cloudinary.com/triconresidential/images/f_auto,q_auto/v1763162088/website_uploads/tricon-social-1200x630-1/tricon-social-1200x630-1.png?_i=AA"
-                                 alt="Tricon Residential Logo">
+                                 alt="Tricon Residential Logo"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                     </div>
                 </article>
@@ -146,7 +167,9 @@
                         </div>
                         <div class="company-logo">
                             <img src="https://coastsign.com/wp-content/uploads/2020/12/CoastSign_Logo-2020.png"
-                                 alt="Coast Sign Logo">
+                                 alt="Coast Sign Logo"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                     </div>
                 </article>
@@ -169,7 +192,9 @@
                         <div class="company-logo">
                             <img src="https://media.licdn.com/dms/image/v2/C560BAQGzBD3GPiKoAQ/company-logo_200_200/company-logo_200_200/0/1630642516687/the_litigation_practice_group_logo?e=2147483647&v=beta&t=mPmTh52ia3U1qNTf-BoP4elvBfmwMgvrJt-RpwRS2OU"
                                  alt="Litigation Practice Group Logo"
-                                 style="opacity: 0.8;">
+                                 style="opacity: 0.8;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                     </div>
                 </article>
@@ -184,7 +209,9 @@
                         <div class="cert-image-container">
                             <img src="https://www.clemson.edu/centers-institutes/thinkclemson/images/security-plus.png"
                                  alt="CompTIA Security+ Certification Badge"
-                                 style="width:120px;">
+                                 style="width:120px;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <div class="quirk-name">CompTIA Security+ (SY0-701)</div>
                         <p>Validated expertise in cybersecurity threats, risk management, and incident response.</p>
@@ -194,7 +221,9 @@
                         <div class="cert-image-container">
                             <img src="https://www.kindpng.com/picc/m/440-4408676_comptia-network-comptia-security-sy0-501-hd-png.png"
                                  alt="CompTIA Network+ Certification Badge"
-                                 style="width:180px;">
+                                 style="width:180px;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <div class="quirk-name">CompTIA Network+ (N10-008)</div>
                         <p>Proven skills in network configuration, troubleshooting, and security fundamentals.</p>
@@ -204,7 +233,9 @@
                         <div class="cert-image-container">
                             <img src="https://badges.peoplecert.org/Badges/Template/en/1140/63804148-665A-4881-AAC6-EAEC58799A85"
                                  alt="ITIL 4 Foundation Certification Badge"
-                                 style="width:140px;">
+                                 style="width:140px;"
+                                 loading="lazy"
+                                 decoding="async">
                         </div>
                         <div class="quirk-name">ITIL 4 Foundation</div>
                         <p>Certified in IT service management best practices for efficient support delivery.</p>
@@ -242,6 +273,32 @@
                 </div>
             </section>
         </main>
+
+        <!-- Performance Metrics Footer -->
+        <footer class="site-footer">
+            <div class="performance-metrics" id="performanceMetrics">
+                <button class="perf-toggle" id="perfToggle" aria-label="Toggle performance metrics">
+                    ⚡ Performance
+                </button>
+                <div class="perf-details" id="perfDetails" style="display: none;">
+                    <div class="perf-item">
+                        <span class="perf-label">Load Time:</span>
+                        <span class="perf-value" id="loadTime">--</span>
+                    </div>
+                    <div class="perf-item">
+                        <span class="perf-label">DOM Ready:</span>
+                        <span class="perf-value" id="domReady">--</span>
+                    </div>
+                    <div class="perf-item">
+                        <span class="perf-label">Resources:</span>
+                        <span class="perf-value" id="resources">--</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-text">
+                © 2026 Juan Duran | Built with Azure Static Web Apps
+            </div>
+        </footer>
     </div>
 
     <!-- External JavaScript -->
