@@ -315,24 +315,204 @@ body {
 }
 
 /* Responsive Design */
+
+/* Tablet Landscape and Small Desktops (iPad Pro, etc.) */
+@media (max-width: 1024px) {
+    .container {
+        border-radius: 15px;
+    }
+
+    .content {
+        padding: 30px;
+    }
+
+    .section-title {
+        font-size: 2.2em;
+    }
+
+    .quirk-container {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+/* Tablet Portrait (iPad, etc.) */
 @media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 10px;
+    }
+
+    .hero-header {
+        padding: 30px 20px;
+    }
+
     .hero-title {
         font-size: 2.5em;
+        text-shadow: 3px 3px 0px #000, 6px 6px 0px rgba(0,0,0,0.2);
+    }
+
+    .hero-subtitle {
+        font-size: 1.2em;
     }
 
     .visitor-badge {
         position: static;
         display: inline-block;
         margin-top: 20px;
+        font-size: 1em;
+        padding: 8px 16px;
     }
 
+    /* Navigation improvements */
+    .main-nav {
+        padding: 15px 20px;
+    }
+
+    .nav-links a {
+        font-size: 1em;
+        padding: 8px 0;
+        display: block;
+    }
+
+    /* Content spacing */
+    .content {
+        padding: 25px 20px;
+    }
+
+    .section {
+        margin-bottom: 30px;
+    }
+
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 15px;
+    }
+
+    /* Skills/Certifications grid */
     .quirk-container {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 
-    .main-nav {
+    .quirk-card {
+        padding: 18px;
+    }
+
+    .quirk-name {
+        font-size: 1.3em;
+    }
+
+    /* Experience section */
+    .experience-item {
+        padding: 20px;
+    }
+
+    .experience-header {
         flex-direction: column;
         gap: 15px;
+    }
+
+    .company-logo {
+        align-self: center;
+    }
+
+    .company-logo img {
+        width: 100px;
+    }
+
+    .company-name {
+        font-size: 1.6em;
+    }
+
+    .job-title {
+        font-size: 1.1em;
+    }
+
+    /* Contact section */
+    .contact-info {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .contact-item {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        /* Larger touch targets for mobile */
+        min-height: 44px;
+    }
+}
+
+/* Mobile Landscape and Small Tablets */
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+
+    .hero-subtitle {
+        font-size: 1em;
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    /* Better text readability on mobile */
+    .job-description {
+        font-size: 0.95em;
+        line-height: 1.7;
+    }
+
+    /* Certification images */
+    .cert-image-container img {
+        max-width: 100px;
+    }
+}
+
+/* Mobile Portrait (Phones) */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    .container {
+        border-radius: 8px;
+    }
+
+    .hero-header {
+        padding: 25px 15px;
+    }
+
+    .hero-title {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95em;
+    }
+
+    .visitor-badge {
+        font-size: 0.9em;
+        padding: 6px 12px;
+        border: 2px solid #000;
+    }
+
+    /* Navigation */
+    .main-nav {
+        padding: 12px 15px;
+    }
+
+    .nav-brand span {
+        font-size: 1.2em !important;
     }
 
     .nav-links {
@@ -341,11 +521,109 @@ body {
         text-align: center;
     }
 
-    .experience-header {
-        flex-direction: column;
+    .nav-links a {
+        font-size: 0.95em;
     }
 
-    .company-logo {
-        align-self: center;
+    /* Content */
+    .content {
+        padding: 15px 12px;
+    }
+
+    .section {
+        margin-bottom: 25px;
+    }
+
+    .section-title {
+        font-size: 1.5em;
+        letter-spacing: 1px;
+    }
+
+    /* Professional summary */
+    .section p {
+        font-size: 0.95em !important;
+        line-height: 1.7 !important;
+    }
+
+    /* Skills cards */
+    .quirk-card {
+        padding: 15px;
+    }
+
+    .quirk-name {
+        font-size: 1.2em;
+    }
+
+    .quirk-card p {
+        font-size: 0.9em;
+    }
+
+    .power-bar {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Experience section */
+    .experience-item {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .company-name {
+        font-size: 1.4em;
+    }
+
+    .job-title {
+        font-size: 1em;
+    }
+
+    .job-date {
+        font-size: 0.85em;
+    }
+
+    .job-description {
+        font-size: 0.9em;
+    }
+
+    .company-logo img {
+        width: 80px;
+    }
+
+    /* Contact items */
+    .contact-item {
+        font-size: 0.9em;
+        padding: 10px 15px;
+        gap: 8px;
+    }
+
+    /* Certification images */
+    .cert-image-container img {
+        max-width: 80px;
+    }
+
+    /* Reduce shadow effects on mobile for performance */
+    .quirk-card,
+    .contact-item {
+        box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+    }
+
+    .experience-item {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.5em;
+    }
+
+    .section-title {
+        font-size: 1.3em;
+    }
+
+    .contact-item {
+        font-size: 0.85em;
+        padding: 8px 12px;
     }
 }
