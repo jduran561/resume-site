@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Dark blue/black background matching your nav -->
+  <rect width="100" height="100" fill="#05050e"/>
+
+  <!-- Yellow border for comic book effect -->
+  <rect x="3" y="3" width="94" height="94" fill="none" stroke="#ffeb3b" stroke-width="3"/>
+
+  <!-- JD text in yellow -->
+  <text x="50" y="72" font-family="Arial Black, sans-serif" font-size="48" font-weight="900" fill="#ffeb3b" text-anchor="middle">JD</text>
+</svg>
