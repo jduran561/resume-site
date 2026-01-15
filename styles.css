@@ -22,6 +22,11 @@
     --shadow-light: rgba(0,0,0,0.1);
     --shadow-medium: rgba(0,0,0,0.3);
     --accent-yellow: #ffeb3b;
+
+    /* Heading and emphasis colors */
+    --section-title-color: #05050e;
+    --company-name-color: #2269ac;
+    --job-title-color: #217eaa;
 }
 
 body.dark-mode {
@@ -38,6 +43,11 @@ body.dark-mode {
     --card-border: #4a5f8f;
     --shadow-light: rgba(255,255,255,0.05);
     --shadow-medium: rgba(255,255,255,0.1);
+
+    /* Bright, high-contrast colors for dark mode */
+    --section-title-color: #ffeb3b;
+    --company-name-color: #64b5f6;
+    --job-title-color: #81c784;
 }
 
 body {
@@ -256,7 +266,7 @@ body.dark-mode .dark-mode-toggle .moon-icon {
 .section-title {
     font-family: 'Bangers', cursive;
     font-size: 2.5em;
-    color: #05050e;
+    color: var(--section-title-color);
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -360,14 +370,14 @@ body.dark-mode .dark-mode-toggle .moon-icon {
 .company-name {
     font-family: 'Bangers', cursive;
     font-size: 1.8em;
-    color: #2269ac;
+    color: var(--company-name-color);
     margin-bottom: 5px;
 }
 
 .job-title {
     font-size: 1.2em;
     font-weight: 700;
-    color: #217eaa;
+    color: var(--job-title-color);
     margin-bottom: 5px;
 }
 
