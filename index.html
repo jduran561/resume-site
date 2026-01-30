@@ -28,6 +28,9 @@
 
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Anime.js Animation Library -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"></script>
 </head>
 <body>
     <div class="action-lines" aria-hidden="true"></div>
@@ -69,13 +72,13 @@
             <div class="visitor-badge" role="status" aria-live="polite">
                 VISITORS: <span id="visitorCount">Loading...</span>
             </div>
-            <h1 class="hero-title">Juan D Duran Rayo</h1>
+            <h1 class="hero-title" id="hero-title">Juan D Duran Rayo</h1>
             <p class="hero-subtitle">Aspiring Cloud Security Engineer</p>
         </header>
 
         <main class="content">
             <!-- About Section -->
-            <section class="section" id="about" aria-labelledby="about-title">
+            <section class="section" id="about" aria-labelledby="about-title" data-animate>
                 <h2 class="section-title" id="about-title">⚡Professional Summary</h2>
                 <p class="professional-summary">
                     Security-minded IT professional holding CompTIA Security+ and Network+ certifications with 3+ years
@@ -87,7 +90,7 @@
             </section>
 
             <!-- Skills Section -->
-            <section class="section" id="skills" aria-labelledby="skills-title">
+            <section class="section" id="skills" aria-labelledby="skills-title" data-animate>
                 <h2 class="section-title" id="skills-title">💪 Skills</h2>
                 <div class="quirk-container">
                     <div class="quirk-card">
@@ -129,7 +132,7 @@
             </section>
 
             <!-- Experience Section -->
-            <section class="section" id="experience" aria-labelledby="experience-title">
+            <section class="section" id="experience" aria-labelledby="experience-title" data-animate>
                 <h2 class="section-title" id="experience-title">🏆 Experience</h2>
 
                 <article class="experience-item">
@@ -198,7 +201,7 @@
             </section>
 
             <!-- Certifications Section -->
-            <section class="section" id="certifications" aria-labelledby="certifications-title">
+            <section class="section" id="certifications" aria-labelledby="certifications-title" data-animate>
                 <h2 class="section-title" id="certifications-title">🎖️ Certifications</h2>
                 <div class="quirk-container">
 
@@ -252,7 +255,7 @@
             </section>
 
             <!-- Contact Section -->
-            <section class="section" id="contact" aria-labelledby="contact-title">
+            <section class="section" id="contact" aria-labelledby="contact-title" data-animate>
                 <h2 class="section-title" id="contact-title">📞 Contact Information</h2>
                 <div class="contact-info">
                     <a href="mailto:juanduran56145@gmail.com" class="contact-item" aria-label="Email Juan Duran">

@@ -278,7 +278,158 @@ function initLazyLoadingFallback() {
 }
 
 // ===========================================
-// 8. INITIALIZE ALL FEATURES ON PAGE LOAD
+// 8. ANIME.JS SCROLL-TRIGGERED ANIMATIONS
+// ===========================================
+
+// Hero Title: Letter-by-Letter Bounce
+function animateHeroTitle() {
+    const titleEl = document.getElementById('hero-title');
+    if (!titleEl) return;
+
+    const text = titleEl.textContent;
+    titleEl.innerHTML = text.split('').map(ch =>
+        ch === ' ' ? ' ' : '<span class="letter">' + ch + '</span>'
+    ).join('');
+
+    anime({
+        targets: '#hero-title .letter',
+        opacity: [0, 1],
+        translateY: [-40, 0],
+        rotateZ: [-15, 0],
+        easing: 'easeOutBounce',
+        duration: 800,
+        delay: anime.stagger(60)
+    });
+}
+
+// Visitor Badge Pop
+function animateVisitorBadge() {
+    anime({
+        targets: '.visitor-badge',
+        opacity: [0, 1],
+        scale: [0.5, 1],
+        easing: 'easeOutElastic(1, .6)',
+        duration: 1000,
+        delay: 600
+    });
+}
+
+// Hero Subtitle Fade
+function animateSubtitle() {
+    anime({
+        targets: '.hero-subtitle',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        easing: 'easeOutQuad',
+        duration: 600,
+        delay: 900
+    });
+}
+
+// Scroll-triggered animations via IntersectionObserver
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateSection(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('[data-animate]').forEach(section => {
+        observer.observe(section);
+    });
+}
+
+function animateSection(section) {
+    // Section Title: Wipe in + Underline Draw
+    const title = section.querySelector('.section-title');
+    if (title) {
+        anime({
+            targets: title,
+            opacity: [0, 1],
+            translateX: [-30, 0],
+            easing: 'easeOutExpo',
+            duration: 600,
+            complete: function() {
+                title.classList.add('underline-visible');
+            }
+        });
+    }
+
+    // Summary Text Fade
+    const summary = section.querySelector('.professional-summary');
+    if (summary) {
+        anime({
+            targets: summary,
+            opacity: [0, 1],
+            translateY: [20, 0],
+            easing: 'easeOutQuad',
+            duration: 700,
+            delay: 300
+        });
+    }
+
+    // Skill / Cert Cards: Staggered Pop In
+    const cards = section.querySelectorAll('.quirk-card');
+    if (cards.length) {
+        anime({
+            targets: cards,
+            opacity: [0, 1],
+            scale: [0.5, 1],
+            rotate: ['-5deg', '0deg'],
+            easing: 'easeOutElastic(1, .6)',
+            duration: 1000,
+            delay: anime.stagger(200, { start: 300 }),
+            complete: function() {
+                // Animate power bars after cards appear
+                const bars = section.querySelectorAll('.power-bar');
+                if (bars.length) {
+                    anime({
+                        targets: bars,
+                        width: [0, function(el) {
+                            return getComputedStyle(el).width;
+                        }],
+                        easing: 'easeInOutQuart',
+                        duration: 400,
+                        delay: anime.stagger(80)
+                    });
+                }
+            }
+        });
+    }
+
+    // Experience Items: Slide In from Left
+    const expItems = section.querySelectorAll('.experience-item');
+    if (expItems.length) {
+        anime({
+            targets: expItems,
+            opacity: [0, 1],
+            translateX: [-60, 0],
+            easing: 'easeOutCubic',
+            duration: 700,
+            delay: anime.stagger(300, { start: 300 })
+        });
+    }
+
+    // Contact Items: Elastic Bounce In
+    const contacts = section.querySelectorAll('.contact-item');
+    if (contacts.length) {
+        anime({
+            targets: contacts,
+            opacity: [0, 1],
+            translateY: [30, 0],
+            scale: [0.8, 1],
+            easing: 'easeOutElastic(1, .5)',
+            duration: 1200,
+            delay: anime.stagger(150, { start: 300 })
+        });
+    }
+}
+
+// ===========================================
+// 9. INITIALIZE ALL FEATURES ON PAGE LOAD
 // ===========================================
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all features
@@ -294,8 +445,16 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🎨 Theme:', localStorage.getItem('darkMode') || 'light');
 });
 
+// Anime.js animations kick off after full page load
+window.addEventListener('load', () => {
+    animateHeroTitle();
+    animateVisitorBadge();
+    animateSubtitle();
+    initScrollAnimations();
+});
+
 // ===========================================
-// 9. CONNECTION STATUS MONITORING
+// 10. CONNECTION STATUS MONITORING
 // ===========================================
 window.addEventListener('online', () => {
     console.log('🟢 Connection restored');

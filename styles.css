@@ -225,6 +225,11 @@ body.dark-mode .dark-mode-toggle .moon-icon {
     margin-bottom: 10px;
 }
 
+.hero-title .letter {
+    display: inline-block;
+    opacity: 0;
+}
+
 .hero-subtitle {
     font-size: 1.5em;
     color: #fff;
@@ -257,12 +262,30 @@ body.dark-mode .dark-mode-toggle .moon-icon {
 
 .section {
     margin-bottom: 40px;
-    animation: fadeIn 0.6s ease-in;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Anime.js initial states for scroll-triggered animations */
+[data-animate] .section-title {
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+[data-animate] .quirk-card {
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+[data-animate] .experience-item {
+    opacity: 0;
+    transform: translateX(-60px);
+}
+
+[data-animate] .contact-item {
+    opacity: 0;
+}
+
+[data-animate] .professional-summary {
+    opacity: 0;
 }
 
 .section-title {
@@ -281,9 +304,14 @@ body.dark-mode .dark-mode-toggle .moon-icon {
     position: absolute;
     bottom: -5px;
     left: 0;
-    width: 100%;
+    width: 0%;
     height: 4px;
     background: linear-gradient(90deg, #667eea, #764ba2);
+    transition: width 0.5s ease-out;
+}
+
+.section-title.underline-visible::after {
+    width: 100%;
 }
 
 /* Professional Summary */
