@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uta Note Privacy Policy</title>
+<meta name="robots" content="noindex">
+<style>
+:root { color-scheme: light dark; --bg: #F1F2F8; --text: #1E2238; --soft: #555B80; --rule: #D5D8E8; --link: #3A3F9E; }
+@media (prefers-color-scheme: dark) { :root { --bg: #262C52; --text: #F1F2F8; --soft: #C3C8E4; --rule: #3A4170; --link: #FFC94D; } }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", sans-serif; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 16px 56px; }
+h1 { font-size: 28px; line-height: 1.2; margin: 0 0 4px; }
+h2 { font-size: 20px; margin: 32px 0 8px; }
+p, li { color: var(--text); }
+a { color: var(--link); }
+code { font: 14px ui-monospace, Menlo, monospace; }
+ul { padding-left: 22px; }
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 6px; border-bottom: 1px solid var(--rule); }
+th { color: var(--soft); font-weight: 600; }
+@media (max-width: 560px) { table, thead, tbody, tr, th, td { display: block; } thead { display: none; } td:first-child { font-weight: 600; border-bottom: none; padding-bottom: 0; } }
+</style>
+</head>
+<body>
+<main>
+<h1>Uta Note Privacy Policy</h1>
+<p>Last updated: October 9, 2026</p>
+<p>Uta Note is a Japanese lyric-study app run by Juan Duran (&quot;we&quot;, &quot;us&quot;). This policy explains what the app collects, why, who handles it for us, and how you can delete it. It is linked in the app (on the sign-in screen and in the Library) and published at <a href="https://juanduran.me/uta-note/privacy">https://juanduran.me/uta-note/privacy</a>. Questions: <a href="mailto:support@juanduran.me">support@juanduran.me</a>.</p>
+<h2>The short version</h2>
+<ul><li>We collect only what the app needs to work: your email address, the songs you paste, what the app generates from them, and your study progress.</li><li>To create line analyses and &quot;Why?&quot; explanations, our server sends lyric lines to Anthropic's Claude API.</li><li>No ads, no tracking, no device identifiers, and no analytics or crash-reporting tools in the app. We don't sell your data.</li><li>You can delete your account and data in the app at any time: Library → Delete account.</li></ul>
+<h2>What we collect</h2>
+<table><thead><tr><th>Data</th><th>Why we need it</th></tr></thead><tbody><tr><td>Your email address, and an account ID we assign</td><td>To send you a 6-digit sign-in code and keep your account. Everything below is stored under the account ID.</td></tr><tr><td>Song titles, artist names and the lyrics you paste</td><td>To show and study your songs.</td></tr><tr><td>What the AI creates from your lyrics: readings, romaji, translations, word lists, notes and &quot;Why?&quot; explanations</td><td>So you can read them again without waiting.</td></tr><tr><td>Study progress: lines you mark &quot;I can say this&quot;, words you save as flashcards, and each flashcard's review schedule (times reviewed, times missed, next due date)</td><td>To track and schedule your learning.</td></tr><tr><td>Usage records: for each AI request, the time, the AI model, the song, how many lines, and how much AI processing it used (token counts); how many songs you've analyzed; whether your account has Pro</td><td>To apply the free 3-song limit and other limits, and to keep AI costs in check. These records contain no lyrics.</td></tr><tr><td>Sign-in records kept by our hosting provider, Supabase: when your account was created and when you signed in, plus the IP address and app/browser type of each session</td><td>To keep accounts secure and the service running.</td></tr></tbody></table>
+<p><strong>Kept on your phone:</strong> your sign-in token and your display settings (which script to show, and whether romaji and translations are on). Deleting the app removes them.</p>
+<p><strong>What we don't collect:</strong> location, contacts, photos, microphone or camera access, advertising or other device identifiers, payment details (the alpha has no in-app purchases), or analytics data. The app's fonts are built in, so it doesn't contact font services.</p>
+<h2>Who handles your data for us</h2>
+<p>We use these providers only to run Uta Note:</p>
+<ul><li><strong>Supabase</strong> hosts our database, sign-in and server functions. Project region: West US (North California).</li><li><strong>Anthropic (Claude API)</strong> generates the analyses and explanations.<ul><li>When you analyze a song, our server sends the lyric lines being analyzed.</li><li>When you tap Explain, it sends that line, the lyric lines just before and after it, the line's existing analysis, and the word you picked (if any).</li><li>We never send your email address, song title, artist name or account details.</li><li>Anthropic's commercial terms say it does not train its models on data sent through its API. Anthropic normally deletes API inputs and outputs within 30 days. Content flagged under Anthropic's usage policy can be kept longer, and Anthropic may also keep data longer when the law requires it.</li></ul></li><li><strong>Resend</strong> sends your sign-in codes, so it receives your email address and the code.</li><li><strong>Apple</strong> distributes the app through TestFlight and the App Store. If you send feedback or crash reports through TestFlight, Apple shares them with us under Apple's privacy policy.</li></ul>
+<p>We store your data in the United States. Our providers may also process it in other countries where they operate.</p>
+<p>We don't share your data with anyone else, and we never use it for advertising.</p>
+<h2>Who can see your songs</h2>
+<p>Your songs are private to your account. The database only lets your signed-in account read or change them, and the app has no sharing features. All traffic is encrypted (HTTPS). As the operator, we can access the database to run and fix the service; we look at your content only to fix a problem you report or when the law requires it.</p>
+<h2>How long we keep it</h2>
+<ul><li><strong>Songs, lyrics, analyses, explanations and progress:</strong> until you delete the song or your account. Deleting a song also deletes its analyses, explanations, &quot;I can say this&quot; marks and saved words.</li><li><strong>Usage records:</strong> until you delete your account. If you delete a song, its usage records stay (they contain no lyrics), and the song still counts toward the free 3-song limit.</li><li><strong>Supabase platform logs and backups:</strong> expire automatically on Supabase's schedule for our plan.</li><li><strong>Anthropic:</strong> normally up to 30 days; content flagged under Anthropic's usage policy can be kept longer (see above).</li></ul>
+<h2>Deleting your account</h2>
+<p>In the app, go to Library → Delete account. This immediately and permanently deletes your account and everything the app's database holds for it: songs, lyrics, analyses, explanations, progress, saved words and usage records. It also immediately deletes your account's entries in Supabase's sign-in security log, which record your email address with sign-in events. It can't be undone.</p>
+<p>Some copies remain for a limited time after that: Supabase's platform logs and backups expire automatically on Supabase's schedule for our plan, and Anthropic normally keeps data up to 30 days; content flagged under Anthropic's usage policy can be kept longer (see above).</p>
+<p>You can also email <a href="mailto:support@juanduran.me">support@juanduran.me</a> to ask us to delete your data.</p>
+<h2>Your rights</h2>
+<p>You can view your data in the app, delete any song, and delete your account. You can also email us to ask for a copy of your data or to correct or delete it, and we'll reply within 30 days. If you live in California, you have these rights under California law too, and we won't treat you differently for using them.</p>
+<h2>Children</h2>
+<p>Uta Note is not directed at children under 13, and we don't knowingly collect their data. If you think a child has given us data, email <a href="mailto:support@juanduran.me">support@juanduran.me</a> and we'll delete it.</p>
+<h2>Changes</h2>
+<p>Uta Note is in alpha and this policy may change. We'll update the date at the top, and we'll email testers about significant changes.</p>
+<h2>Contact</h2>
+<ul><li>Juan Duran</li><li><a href="mailto:support@juanduran.me">support@juanduran.me</a></li></ul>
+</main>
+</body>
+</html>
